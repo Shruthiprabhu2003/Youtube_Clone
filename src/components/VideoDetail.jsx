@@ -23,7 +23,7 @@ export const VideoDetail = () => {
         setVideos(data.items)
       })
   }, [id])
-  console.log(videoDetail)
+  console.log(videos)
 
   // if(videoDetail?.snippet) return "Loading..."
 
@@ -34,9 +34,9 @@ export const VideoDetail = () => {
     <Box minHeight="95vh">
       <Stack direction={{ xs: "column", md: "row" }}>
         <Box flex={1}>
-          <Box sx={{ width: "100%", position: "sticky", top: "86px" }}>
+          <Box sx={{ width: "100%", position: "sticky", top: "70px" }}>
             <ReactPlayer url={`https://www.youtube.com/watch?v=${id}`} className="react-player" controls />
-            <Typography color="#fff" variant="h5" fontWeight="bold" p={2}>
+            <Typography color="#fff" variant="h5" fontWeight="bold" p={1}>
               {videoDetail?.snippet?.title}
             </Typography>
             <Stack direction="row" justifyContent="space-between" sx={{ color: "#fff" }} py={1} px={2}>
@@ -56,9 +56,14 @@ export const VideoDetail = () => {
               </Stack>
             </Stack>
           </Box>
-
         </Box>
+      
+
+      <Box px={2} py={{ md: 1, xs: 5 }} justifyContent="center" alignItems="center">
+        <Videos videos={videos} direction="column"/>
+      </Box> 
       </Stack>
+
     </Box>
   )
 }
